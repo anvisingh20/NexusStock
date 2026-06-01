@@ -7,6 +7,9 @@ load_dotenv()
 
 # Fallback to local SQLite if POSTGRES_URL / DATABASE_URL is not set
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./inventory.db")
+# Render provides postgres:// but SQLAlchemy requires postgresql://
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 # Adjust check_same_thread for SQLite compatibility
 connect_args = {}
