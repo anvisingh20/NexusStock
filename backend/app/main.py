@@ -23,6 +23,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# --- Root Health Check ---
+@app.get("/")
+def root():
+    return {
+        "status": "online",
+        "service": "NexusStock API",
+        "version": "1.0.0",
+        "docs": "/docs"
+    }
+
 # Helper function to serialize an order with customer and product names
 def serialize_order(order: models.Order) -> schemas.OrderResponse:
     items_out = []
