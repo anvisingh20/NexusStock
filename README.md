@@ -136,7 +136,7 @@ Detailed endpoints registered in the FastAPI server:
 * `DELETE /products/{id}` - Remove product.
 
 ### Customer Directory APIs
-* `POST /customers` - Register customer profile (requires unique, valid email format).
+* `POST /customers` - Register customer profile (requires  unique, valid email format).
 * `GET /customers` - Read all profiles.
 * `GET /customers/{id}` - Inspect customer details.
 * `PUT /customers/{id}` - Update profile.
